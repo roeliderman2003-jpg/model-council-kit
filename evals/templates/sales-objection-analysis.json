@@ -1,0 +1,37 @@
+{
+  "id": "sales-objection-analysis",
+  "task_type": "sales_analysis",
+  "rubric": "analysis",
+  "original_request": "<<e.g. 'נתח את שיחות המכירה של החודש ותגיד לי מה חוזר'>>",
+  "brief": "identify the objections that actually recur, and what preceded each one",
+  "audience": "internal, you and whoever runs the calls",
+  "approved_facts": [
+    "<<the price actually quoted on these calls>>",
+    "<<what the offer includes>>"
+  ],
+  "constraints": [
+    "every claim must be traceable to a quoted line in the material",
+    "an objection mentioned once is an anecdote and must be labelled as one",
+    "do not name customers, refer to them as caller 1, caller 2"
+  ],
+  "source_material": [
+    {
+      "label": "call 1 excerpt",
+      "content": "<<paste the relevant passage ONLY. Phone numbers are redacted automatically, but do not paste whole transcripts>>"
+    },
+    {
+      "label": "call 2 excerpt",
+      "content": "<<...>>"
+    }
+  ],
+  "desired_output": "ranked objections, each with frequency, a supporting quote, and what came just before it",
+  "success_criteria": [
+    "<<e.g. 'tells me something I did not already know from listening myself'>>"
+  ],
+  "expected": "<<what good looks like>>",
+  "must_not_contain": [
+    "<<any customer name>>"
+  ],
+  "sensitivity": "confidential",
+  "notes": "Confidential is right here. Use restricted, with explicit approval, if the excerpts identify anyone."
+}

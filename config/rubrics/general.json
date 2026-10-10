@@ -1,0 +1,76 @@
+{
+  "id": "general",
+  "version": "1.0.0",
+  "label": "General judgement — decisions, writing, planning, explanation",
+  "applies_to": ["decision", "writing", "planning", "explanation", "naming", "translation", "other"],
+  "decision_threshold": 0.8,
+  "min_confidence": 0.6,
+  "subjective_escalation_ratio": 0.45,
+  "_comment": "The fallback rubric for work with no objective test: which approach to take, how to word something, how to sequence a plan, how to explain a thing. The criteria are about whether the answer is USABLE, not whether it is pleasant.",
+  "criteria": [
+    {
+      "id": "answers_the_question",
+      "label": "Answers what was actually asked",
+      "weight": 25,
+      "description": "Does it address the request as stated, at the scope requested? An answer to a nearby, easier question scores low however good it is on its own terms. Check the original request, not a reasonable-sounding version of it."
+    },
+    {
+      "id": "grounding",
+      "label": "Grounding",
+      "weight": 20,
+      "description": "Is every factual claim supported by the approved facts or the supplied material? A confident assertion with nothing behind it is worse than an acknowledged gap."
+    },
+    {
+      "id": "completeness",
+      "label": "Completeness",
+      "weight": 20,
+      "description": "Does it cover what actually matters, including the awkward parts? Penalise an answer that is clean because it quietly skipped the hard case."
+    },
+    {
+      "id": "actionability",
+      "label": "Actionability",
+      "weight": 15,
+      "description": "Can the reader do something specific with this? A recommendation with no concrete next step, or a decision with no stated trade-off, scores low."
+    },
+    {
+      "id": "calibration",
+      "label": "Calibration",
+      "weight": 10,
+      "description": "Does it distinguish what it knows from what it is guessing, and name what it could not determine? Uniform confidence across certain and uncertain claims scores low."
+    },
+    {
+      "id": "concision",
+      "label": "Concision",
+      "weight": 10,
+      "description": "Is the length earned? Penalise padding, restatement of the question, and hedging that carries no information.",
+      "subjective": true
+    }
+  ],
+  "hard_failures": [
+    {
+      "id": "answered_a_different_question",
+      "label": "Answered a different question",
+      "description": "Silently substituted an easier or adjacent question for the one asked, without saying so. Quote the request and the part of the answer that drifts from it."
+    },
+    {
+      "id": "unapproved_fact",
+      "label": "Invented a fact",
+      "description": "States a specific fact — a number, a name, a date, a quotation, an API, a source — that appears nowhere in the approved facts or the supplied material."
+    },
+    {
+      "id": "unsupported_certainty",
+      "label": "Stated a guess as a fact",
+      "description": "Presents something it could not know with the same confidence as something it does know, with no hedge and no flag. Quote the sentence."
+    },
+    {
+      "id": "ignored_constraint",
+      "label": "Ignored a stated constraint",
+      "description": "Breaks an explicit rule from the brief — a length limit, a forbidden approach, a required format, a named thing to avoid."
+    },
+    {
+      "id": "sensitive_data_use",
+      "label": "Exposed identifying details",
+      "description": "Reproduces a person's name, phone, email or ID where an anonymous reference would have served."
+    }
+  ]
+}

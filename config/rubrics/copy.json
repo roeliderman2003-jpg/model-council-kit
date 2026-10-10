@@ -1,0 +1,80 @@
+{
+  "id": "copy",
+  "version": "1.0.0",
+  "label": "Copy and marketing",
+  "applies_to": ["copy", "marketing_angle", "value_proposition"],
+  "decision_threshold": 0.8,
+  "min_confidence": 0.6,
+  "subjective_escalation_ratio": 0.5,
+  "criteria": [
+    {
+      "id": "audience_fit",
+      "label": "Fit to the audience",
+      "weight": 25,
+      "description": "Does it speak to the stated audience in their own terms, at their level of awareness and objection? Generic copy that could address anyone scores low."
+    },
+    {
+      "id": "clarity",
+      "label": "Clarity",
+      "weight": 20,
+      "description": "Can the reader understand the offer, the benefit and the next step on one pass? Penalise ambiguity, jargon and buried leads."
+    },
+    {
+      "id": "credibility",
+      "label": "Credibility",
+      "weight": 20,
+      "description": "Is every claim supported by the approved facts? Vague superlatives, invented numbers and unearned authority reduce the score."
+    },
+    {
+      "id": "offer_strength",
+      "label": "Strength of the offer",
+      "weight": 15,
+      "description": "How compelling is the value exchange as presented — the reason to act now, the risk reversal, the specificity of what is gained."
+    },
+    {
+      "id": "brand_voice",
+      "label": "Brand voice fit",
+      "weight": 10,
+      "description": "Does it match the stated brand voice in register, warmth and rhythm?",
+      "subjective": true
+    },
+    {
+      "id": "cta_quality",
+      "label": "Call to action",
+      "weight": 10,
+      "description": "Is the requested action singular, concrete, low-friction and placed where the reader is ready for it?"
+    }
+  ],
+  "hard_failures": [
+    {
+      "id": "unapproved_fact",
+      "label": "Unapproved fact",
+      "description": "States a specific fact — a number, a date, a credential, a result — that does not appear in the approved facts."
+    },
+    {
+      "id": "forbidden_promise",
+      "label": "Forbidden promise",
+      "description": "Promises a result that cannot be guaranteed, such as guaranteed weight loss, guaranteed income or a guaranteed outcome."
+    },
+    {
+      "id": "wrong_price",
+      "label": "Wrong price",
+      "description": "States a price, discount or payment term that contradicts the approved facts."
+    },
+    {
+      "id": "unsupported_regulated_claim",
+      "label": "Unsupported medical, legal or financial claim",
+      "description": "Makes a medical, legal or financial claim without a basis in the approved facts."
+    },
+    {
+      "id": "out_of_scope_offer",
+      "label": "Offer outside the product",
+      "description": "Describes a service, feature or inclusion the product does not actually contain."
+    },
+    {
+      "id": "sensitive_data_use",
+      "label": "Use of sensitive data",
+      "description": "Reproduces a person's identifying details — a name, a phone, an email, an ID number — that were not cleared for publication."
+    }
+  ]
+}

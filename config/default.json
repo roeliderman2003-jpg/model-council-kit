@@ -1,0 +1,141 @@
+{
+  "config_version": "1.0.0",
+  "_comment": "Model Council defaults. NO SECRETS IN THIS FILE. The API key is read from the OPENAI_API_KEY environment variable only. Override any value by creating config/local.json (git-ignored) or a .model-council.json at the project root.",
+  "models": {
+    "_comment": "Model names are never hard-coded in source. Env vars win over this file.",
+    "provider": "codex",
+    "_comment_provider": "auto = use the Codex CLI when it is installed and signed in (ChatGPT subscription, no API billing), otherwise the OpenAI API. Force one with 'codex' or 'openai', or with MODEL_COUNCIL_PROVIDER.",
+    "generator": "gpt-5.1",
+    "evaluator": "gpt-5.1",
+    "fast": "gpt-5.1-mini",
+    "codex_model": "gpt-6-astra",
+    "_comment_codex_model": "Model passed to `codex exec -m`. Empty means let Codex use its own default. Your ~/.codex/config.toml is deliberately ignored for instruction isolation, so the model you want must be named here.",
+    "env_overrides": {
+      "generator": "OPENAI_GENERATOR_MODEL",
+      "evaluator": "OPENAI_EVALUATOR_MODEL",
+      "fast": "OPENAI_FAST_MODEL"
+    },
+    "codex_reasoning_effort": "high",
+    "_comment_codex_effort": "Passed as `-c model_reasoning_effort`. low | medium | high | xhigh. Higher costs more time and more plan rate limit, no money.",
+    "fallback_to_billed": false,
+    "_comment_fallback": "Under provider 'auto', what to do when Codex is unreachable. false = refuse rather than silently bill the API. Codex being unreachable is usually environmental (the binary is under %LOCALAPPDATA% and not on PATH), and a quiet fallback turns that into a charge nobody saw. Set true, or name 'openai' explicitly, to allow the billed route.",
+    "codex_evaluator_model": "gpt-5.6-terra",
+    "_comment_codex_evaluator": "Judge model for the Codex route. Deliberately DIFFERENT from codex_model: a model judging its own output has a measured self-preference bias, and a panel of disjoint model families correlates better with human ratings (Verga et al. 2024, arXiv:2404.18796). Both models are on the same subscription, so cross-model judging costs nothing extra. Empty falls back to codex_model."
+  },
+  "pricing_usd_per_1m_tokens": {
+    "_comment": "Used for cost ESTIMATES only. Update when prices change; a missing model falls back to `default` and the estimate is flagged as approximate.",
+    "default": {
+      "input": 1.25,
+      "output": 10.0
+    },
+    "gpt-5.1": {
+      "input": 1.25,
+      "output": 10.0
+    },
+    "gpt-5.1-mini": {
+      "input": 0.25,
+      "output": 2.0
+    },
+    "gpt-5": {
+      "input": 1.25,
+      "output": 10.0
+    },
+    "gpt-4.1": {
+      "input": 2.0,
+      "output": 8.0
+    },
+    "gpt-4.1-mini": {
+      "input": 0.4,
+      "output": 1.6
+    }
+  },
+  "budget": {
+    "daily_usd": 3.0,
+    "monthly_usd": 40.0,
+    "per_task_usd": 0.5,
+    "max_output_tokens": 4000,
+    "max_input_chars": 60000,
+    "timeout_ms": 90000,
+    "retries": 2,
+    "max_calls_per_workflow": 6,
+    "max_refinement_rounds": 2,
+    "warn_estimate_usd": 0.15,
+    "codex_timeout_ms": 900000,
+    "_comment_codex_timeout": "Codex runs an agent loop and is much slower than a direct API call. It also costs no money, so a generous timeout is cheap."
+  },
+  "routing": {
+    "default_mode_by_task_type": {
+      "code": "CLAUDE_ONLY",
+      "architecture": "CLAUDE_ONLY",
+      "tests": "CLAUDE_ONLY",
+      "ops": "CLAUDE_ONLY",
+      "copy": "GPT_ONLY",
+      "marketing_angle": "GPT_ONLY",
+      "value_proposition": "GPT_ONLY",
+      "sales_analysis": "GPT_ONLY",
+      "qualitative_analysis": "GPT_ONLY",
+      "research_summary": "GPT_ONLY",
+      "feature_spec": "CLAUDE_ONLY",
+      "small_rewrite": "CLAUDE_ONLY",
+      "other": "CLAUDE_ONLY",
+      "decision": "COMPETITION",
+      "writing": "GPT_ONLY",
+      "planning": "CLAUDE_ONLY",
+      "explanation": "CLAUDE_ONLY",
+      "naming": "COMPETITION",
+      "translation": "GPT_ONLY"
+    },
+    "_comment_high_stakes": "A task marked high_stakes, irreversible or above the money threshold is promoted to COMPETITION regardless of its type.",
+    "high_stakes_forces_competition": true,
+    "money_impact_threshold_ils": 1000,
+    "small_task_stays_single_model": true,
+    "small_task_max_chars": 400,
+    "shadow_sample_rate": 0.1,
+    "min_sample_size_for_routing_change": 12,
+    "auto_routing_changes_enabled": false,
+    "_comment_auto_routing": "Statistics are reported but never silently rewire routing. Flip this on only after you have read the numbers yourself.",
+    "_comment_general": "A decision and a name are cheap to compare and expensive to get wrong, so both default to COMPETITION. Planning and explanation stay with Claude because they lean on project context it already has and the other model does not."
+  },
+  "evaluation": {
+    "default_decision_threshold": 0.8,
+    "default_min_confidence": 0.6,
+    "default_subjective_escalation_ratio": 0.5,
+    "escalate_when_objective_checks_disagree": true,
+    "escalate_when_missing_facts": true,
+    "escalate_when_irreversible": true
+  },
+  "privacy": {
+    "store_full_content": false,
+    "_comment_store": "false = only SHA-256 hashes and metadata are persisted. Turn on only for a debugging session, then turn it off again.",
+    "redact_by_default": true,
+    "redaction_kinds": [
+      "phone",
+      "email",
+      "israeli_id",
+      "credit_card",
+      "iban",
+      "api_key"
+    ],
+    "blocked_path_patterns": [
+      "**/.env",
+      "**/.env.*",
+      "**/*.key",
+      "**/*.pem",
+      "**/credentials*.json",
+      "**/.credentials.json",
+      "**/secrets*.json",
+      "**/.git/**",
+      "**/node_modules/**",
+      "**/.claude/.credentials.json"
+    ],
+    "restricted_requires_approval": true,
+    "max_source_material_chars": 20000
+  },
+  "logging": {
+    "content_logging_enabled": false,
+    "log_level": "info"
+  },
+  "storage": {
+    "db_path": "data/council.db"
+  }
+}

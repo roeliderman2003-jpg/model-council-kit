@@ -1,0 +1,58 @@
+{
+  "id": "analysis",
+  "version": "1.0.0",
+  "label": "Qualitative analysis and research",
+  "applies_to": ["sales_analysis", "qualitative_analysis", "research_summary"],
+  "decision_threshold": 0.8,
+  "min_confidence": 0.6,
+  "subjective_escalation_ratio": 0.45,
+  "criteria": [
+    {
+      "id": "grounding",
+      "label": "Grounding in the source",
+      "weight": 30,
+      "description": "Is every claim traceable to something actually present in the supplied material? An insight that is not in the transcript is a hallucination, however plausible."
+    },
+    {
+      "id": "insight",
+      "label": "Non-obvious insight",
+      "weight": 25,
+      "description": "Does it surface something a careful reader would have missed, rather than paraphrasing what is already on the surface?"
+    },
+    {
+      "id": "actionability",
+      "label": "Actionability",
+      "weight": 20,
+      "description": "Can a specific decision or change be made from this? Vague recommendations score low."
+    },
+    {
+      "id": "coverage",
+      "label": "Coverage",
+      "weight": 15,
+      "description": "Does it account for the whole sample rather than the loudest example? Cherry-picking scores low."
+    },
+    {
+      "id": "calibration",
+      "label": "Calibration",
+      "weight": 10,
+      "description": "Does it state confidence honestly, distinguish a pattern from an anecdote, and name what it could not determine?"
+    }
+  ],
+  "hard_failures": [
+    {
+      "id": "fabricated_quote",
+      "label": "Fabricated quote or example",
+      "description": "Presents a quote, number or example that does not appear in the supplied source material."
+    },
+    {
+      "id": "unsupported_generalisation",
+      "label": "Unsupported generalisation",
+      "description": "States a population-level conclusion from a sample that cannot support it, without saying so."
+    },
+    {
+      "id": "sensitive_data_use",
+      "label": "Exposes identifying details",
+      "description": "Reproduces a customer's name, phone, email or ID where an anonymous reference would do."
+    }
+  ]
+}

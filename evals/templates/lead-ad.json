@@ -1,0 +1,27 @@
+{
+  "id": "lead-ad",
+  "task_type": "copy",
+  "rubric": "copy",
+  "original_request": "<<e.g. 'תכין 3 מודעות לידים לקהל של אבות'>>",
+  "brief": "<<the single message the ad must land>>",
+  "audience": "<<who, and at what stage of awareness>>",
+  "brand_voice": "<<tone>>",
+  "approved_facts": [
+    "<<the offer>>",
+    "<<what happens after they click>>"
+  ],
+  "constraints": [
+    "<<platform limit, e.g. 'primary text under 125 characters'>>",
+    "<<e.g. 'no before/after body claims, Meta rejects them'>>"
+  ],
+  "desired_output": "<<e.g. '3 variants: primary text, headline, description'>>",
+  "success_criteria": [
+    "<<e.g. 'each variant uses a genuinely different angle, not a reworded same angle'>>"
+  ],
+  "expected": "<<what good looks like>>",
+  "must_not_contain": [
+    "<<forbidden claim>>"
+  ],
+  "sensitivity": "internal",
+  "notes": "Record the real CPL per variant with /record-outcome. That is the only score that finally counts."
+}

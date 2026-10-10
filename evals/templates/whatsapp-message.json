@@ -1,0 +1,29 @@
+{
+  "id": "whatsapp-message",
+  "task_type": "copy",
+  "rubric": "copy",
+  "original_request": "<<e.g. 'תכתוב הודעת תפוצה לקבוצה על פתיחת המחזור החדש'>>",
+  "brief": "<<what the recipient should do after reading>>",
+  "audience": "<<existing members, cold leads, which segment>>",
+  "brand_voice": "<<how you actually write in WhatsApp, usually shorter and warmer than the website>>",
+  "approved_facts": [
+    "<<the date>>",
+    "<<what is included>>",
+    "<<how to reply>>"
+  ],
+  "constraints": [
+    "under 5 lines",
+    "one question at most, and it must be answerable with a short reply",
+    "<<no links / one link / whatever applies>>"
+  ],
+  "desired_output": "a single WhatsApp message, ready to send",
+  "success_criteria": [
+    "<<e.g. 'a reply of yes is unambiguous, because there is only one open question'>>"
+  ],
+  "expected": "<<what good looks like>>",
+  "must_not_contain": [
+    "<<anything that would read as spam>>"
+  ],
+  "sensitivity": "internal",
+  "notes": "A message that invites a reply with nowhere to land is worse than one that asks nothing."
+}

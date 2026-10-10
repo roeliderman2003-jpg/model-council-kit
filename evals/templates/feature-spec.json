@@ -1,0 +1,28 @@
+{
+  "id": "feature-spec",
+  "task_type": "feature_spec",
+  "rubric": "code",
+  "original_request": "<<e.g. 'תאפיין לי את הפיצר של תזכורות אוטומטיות'>>",
+  "brief": "<<what the feature must do, and for whom>>",
+  "approved_facts": [
+    "<<what already exists in the system today>>",
+    "<<what it must integrate with>>"
+  ],
+  "constraints": [
+    "<<e.g. 'must run on the existing Vercel cron, no new infrastructure'>>"
+  ],
+  "source_material": [
+    {
+      "label": "existing module",
+      "content": "<<paste the relevant functions only>>",
+      "path": "<<repo-relative path>>"
+    }
+  ],
+  "desired_output": "user stories, data model changes, edge cases, and what could go wrong",
+  "success_criteria": [
+    "<<e.g. 'an engineer could start without asking three questions first'>>"
+  ],
+  "expected": "<<what good looks like>>",
+  "sensitivity": "internal",
+  "notes": "Claude-default territory. Worth a shadow sample to check whether that default still holds."
+}

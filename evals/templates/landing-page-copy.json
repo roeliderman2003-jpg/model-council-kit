@@ -1,0 +1,37 @@
+{
+  "id": "landing-page-copy",
+  "task_type": "copy",
+  "rubric": "copy",
+  "original_request": "<<paste exactly what you would type, e.g. 'תכתוב לי דף נחיתה לתוכנית של האמהות'>>",
+  "brief": "<<what the page must achieve — one sentence>>",
+  "audience": "<<who: age, situation, what they have already tried, what they are afraid of>>",
+  "brand_voice": "<<register and tone, e.g. 'warm, direct, no hype, speaks to them as adults'>>",
+  "approved_facts": [
+    "<<a fact you have confirmed, e.g. 'groups are capped at eight'>>",
+    "<<another, e.g. 'sessions are 50 minutes'>>",
+    "<<price, if it may be stated at all>>"
+  ],
+  "constraints": [
+    "<<e.g. 'no results promises'>>",
+    "<<e.g. 'do not mention competitors by name'>>",
+    "<<e.g. 'Hebrew, second person singular'>>"
+  ],
+  "source_material": [
+    {
+      "label": "<<e.g. 'current page'>>",
+      "content": "<<paste only the relevant section>>"
+    }
+  ],
+  "desired_output": "<<e.g. 'headline, subheadline, three benefit blocks, one CTA'>>",
+  "success_criteria": [
+    "<<e.g. 'a reader who has not trained in ten years feels it is for them'>>"
+  ],
+  "expected": "<<describe what a good answer looks like, for your own reading>>",
+  "must_not_contain": [
+    "guaranteed",
+    "מובטח",
+    "<<any price that is not in approved_facts>>"
+  ],
+  "sensitivity": "internal",
+  "notes": "Competition mode is worth it here. A landing page is expensive to get wrong."
+}

@@ -1,0 +1,81 @@
+{
+  "id": "code",
+  "version": "1.0.0",
+  "label": "Code and engineering",
+  "applies_to": ["code", "architecture", "tests", "ops", "feature_spec"],
+  "decision_threshold": 1.0,
+  "min_confidence": 0.65,
+  "subjective_escalation_ratio": 0.4,
+  "_comment": "Automated checks outrank every score in this file. Pass them in as objective_checks; when they point at a side, the rubric is not consulted for the verdict.",
+  "criteria": [
+    {
+      "id": "correctness",
+      "label": "Correctness",
+      "weight": 30,
+      "description": "Does it do what the brief asked, including the edge cases the brief names? Reason about the actual control flow, not the naming."
+    },
+    {
+      "id": "test_fit",
+      "label": "Tests and verifiability",
+      "weight": 20,
+      "description": "Are the changes covered by tests that would actually fail if the behaviour regressed? A test that cannot fail scores zero here."
+    },
+    {
+      "id": "security",
+      "label": "Security",
+      "weight": 15,
+      "description": "Injection, secret handling, authorisation, unvalidated input, unsafe deserialisation, path traversal."
+    },
+    {
+      "id": "architecture_fit",
+      "label": "Fit to the existing architecture",
+      "weight": 15,
+      "description": "Does it use the project's existing helpers, layering and conventions rather than introducing a parallel way of doing the same thing?"
+    },
+    {
+      "id": "readability",
+      "label": "Readability and maintenance",
+      "weight": 10,
+      "description": "Would a colleague understand the intent in one read? Naming, structure, comment density matching the surrounding file."
+    },
+    {
+      "id": "performance",
+      "label": "Performance",
+      "weight": 5,
+      "description": "Algorithmic cost, redundant IO, work inside hot loops. Only counts where the brief implies it matters."
+    },
+    {
+      "id": "minimal_diff",
+      "label": "Minimal change surface",
+      "weight": 5,
+      "description": "Does it change only what the task requires? Penalise drive-by refactors and unrelated reformatting."
+    }
+  ],
+  "hard_failures": [
+    {
+      "id": "breaks_tests",
+      "label": "Breaks the stated tests",
+      "description": "The candidate contradicts a test result supplied in the brief or in the objective checks."
+    },
+    {
+      "id": "security_hole",
+      "label": "Introduces a security hole",
+      "description": "Leaks a secret, disables a guard, or opens an injection or traversal path."
+    },
+    {
+      "id": "hardcoded_secret",
+      "label": "Hard-coded secret",
+      "description": "Embeds an API key, token, password or connection string in source."
+    },
+    {
+      "id": "violates_hard_requirement",
+      "label": "Violates a stated hard requirement",
+      "description": "Ignores an explicit constraint from the brief — a forbidden dependency, a required interface, a protected file."
+    },
+    {
+      "id": "invented_api",
+      "label": "Invented API",
+      "description": "Calls a function, flag or field that does not exist in the supplied source material."
+    }
+  ]
+}

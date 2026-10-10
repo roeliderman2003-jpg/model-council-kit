@@ -1,0 +1,28 @@
+node_modules/
+dist/
+*.log
+
+# Local state — contains task history, never commit
+data/
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+
+# Secrets — must never be committed. The API key lives in the Windows
+# environment only (see docs/WINDOWS-API-KEY.md).
+.env
+.env.*
+!.env.example
+*.key
+secrets.json
+config/local.json
+
+# Ad-hoc scratch scripts, often written by a parallel session using this
+# library. Left on disk, kept out of the project history.
+_*.ts
+_*.mjs
+
+# Runtime marker: which build the live server loaded.
+data/running-build.json
+dist/build-id.json

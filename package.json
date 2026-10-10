@@ -1,0 +1,43 @@
+{
+  "name": "model-council",
+  "version": "1.0.0",
+  "description": "Local MCP server that lets Claude Code consult OpenAI GPT models as a second expert, with blind comparison, transparent routing and outcome-driven statistics.",
+  "main": "dist/server.js",
+  "type": "commonjs",
+  "private": true,
+  "license": "UNLICENSED",
+  "author": "Roee Liderman",
+  "scripts": {
+    "start": "tsx src/server.ts",
+    "build": "tsc && node scripts/stamp-build.mjs",
+    "typecheck": "tsc --noEmit",
+    "test": "node --test --import tsx \"test/**/*.test.ts\"",
+    "test:unit": "node --test --import tsx \"test/unit/*.test.ts\"",
+    "test:integration": "node --test --import tsx \"test/integration/*.test.ts\"",
+    "test:neutrality": "node --test --import tsx \"test/neutrality/*.test.ts\"",
+    "test:security": "node --test --import tsx \"test/security/*.test.ts\"",
+    "smoke": "tsx scripts/smoke.ts",
+    "council": "tsx scripts/cli.ts",
+    "pretest": "npm run build",
+    "test:dist": "node --test --import tsx \"test/integration/compiled-artifact.test.ts\"",
+    "postinstall": "npm run build --if-present",
+    "smoke:codex": "tsx scripts/smoke-codex.ts"
+  },
+  "keywords": [
+    "mcp",
+    "claude-code",
+    "openai",
+    "routing",
+    "blind-evaluation"
+  ],
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.24.1",
+    "openai": "^7.2.0",
+    "tsx": "^4.21.0",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@types/node": "^25.6.0",
+    "typescript": "^6.0.3"
+  }
+}

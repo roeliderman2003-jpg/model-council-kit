@@ -1,0 +1,38 @@
+{
+  "id": "code-review",
+  "task_type": "code",
+  "rubric": "code",
+  "original_request": "<<e.g. 'תעבור על ה-PR הזה'>>",
+  "brief": "find correctness and security problems in this change",
+  "approved_facts": [
+    "<<what the change is supposed to do>>",
+    "<<what the tests currently report>>"
+  ],
+  "constraints": [
+    "only comment on the changed lines and what they touch"
+  ],
+  "source_material": [
+    {
+      "label": "the diff",
+      "content": "<<paste the diff>>",
+      "path": "<<repo-relative path>>"
+    }
+  ],
+  "objective_checks": [
+    {
+      "id": "unit",
+      "label": "unit test suite",
+      "favours": null,
+      "passed_a": null,
+      "passed_b": null,
+      "detail": "<<fill in the REAL result. This outranks any model opinion>>"
+    }
+  ],
+  "desired_output": "findings ranked by severity, each with the failing scenario",
+  "success_criteria": [
+    "<<e.g. 'every finding names concrete inputs that break it'>>"
+  ],
+  "expected": "<<what good looks like>>",
+  "sensitivity": "internal",
+  "notes": "Tests decide. If the suite disagrees with the reviewer, the suite is right."
+}

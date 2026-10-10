@@ -1,0 +1,33 @@
+{
+  "id": "customer-research-summary",
+  "task_type": "research_summary",
+  "rubric": "analysis",
+  "original_request": "<<e.g. 'תסכם לי את הראיונות ותגיד מה המסקנה'>>",
+  "brief": "synthesise the interviews into decisions I can actually make",
+  "audience": "internal",
+  "constraints": [
+    "distinguish what was said from what you inferred",
+    "state the sample size next to every pattern",
+    "name what the material could not tell you"
+  ],
+  "source_material": [
+    {
+      "label": "interview 1",
+      "content": "<<relevant excerpt>>"
+    },
+    {
+      "label": "interview 2",
+      "content": "<<relevant excerpt>>"
+    }
+  ],
+  "desired_output": "3-5 patterns, each with sample size, a quote, and the decision it implies",
+  "success_criteria": [
+    "<<e.g. 'I can act on at least one of these this week'>>"
+  ],
+  "expected": "<<what good looks like>>",
+  "must_not_contain": [
+    "<<any interviewee name>>"
+  ],
+  "sensitivity": "confidential",
+  "notes": "Asking for top themes makes the tail vanish. If you need a total, ask for one."
+}
