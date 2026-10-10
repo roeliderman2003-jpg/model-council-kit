@@ -13,10 +13,10 @@
 - מנוי ChatGPT בתשלום
 
 ## התקנה: מדביקים את זה ל-Claude Code
-פותחים את Claude Code בתיקייה הזו (אחרי שחילצת את ה-zip, למשל ל-`~/model-council`) ומדביקים:
+פותחים את Claude Code (בכל תיקייה) ומדביקים:
 
 ```
-תתקין לי את Model Council מהתיקייה הזו לפי הקובץ INSTALL.md:
+תתקין לי את Model Council: תשכפל את https://github.com/roeliderman2003-jpg/model-council-kit לתיקייה ~/model-council, ותעבוד לפי INSTALL.md שבתוכה:
 1. תבדוק ש-Node 20+ מותקן.
 2. תתקין את Codex CLI: npm install -g @openai/codex (אם לא מותקן).
 3. תגיד לי להריץ בעצמי `codex login` ולבחור "Sign in with ChatGPT" (זה פותח דפדפן, אני מתחבר). תחכה שאאשר.
